@@ -195,10 +195,10 @@ namespace Neon.IO
                 {
                     var cb = Math.Min(count, (int)(length - Position));
 
-                    baseStream.Read(buffer, offset, cb);
-                    Position += cb;
+                    int read = baseStream.Read(buffer, offset, cb);
+                    Position += read;
 
-                    return cb;
+                    return read;
                 });
         }
 

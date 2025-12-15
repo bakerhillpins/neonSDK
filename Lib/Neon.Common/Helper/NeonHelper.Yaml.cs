@@ -70,8 +70,8 @@ namespace Neon.Common
                 return type.IsEnum;
             }
 
-            /// <inheritdoc/>
-            public object ReadYaml(IParser parser, Type type)
+            /// <inheritdoc />
+            public object ReadYaml(IParser parser, Type type, ObjectDeserializer rootDeserializer)
             {
                 var scaler = parser.Current as Scalar;
 
@@ -87,8 +87,8 @@ namespace Neon.Common
                 }
             }
 
-            /// <inheritdoc/>
-            public void WriteYaml(IEmitter emitter, object value, Type type)
+            /// <inheritdoc />
+            public void WriteYaml(IEmitter emitter, object value, Type type, ObjectSerializer serializer)
             {
                 emitter.Emit(new Scalar(null, NeonHelper.EnumToString(type, value)));
             }
